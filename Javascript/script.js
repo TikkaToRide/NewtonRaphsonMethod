@@ -1,7 +1,7 @@
-var principal = 154340
-var payment = 35316
-var numberOfYears = 5
-var repayFrequency = 1
+var principal = prompt("Principal Amount ")
+var payment = prompt("Payment Amount ")
+var numberOfYears = prompt("How Many Years is Loan ")
+var repayFrequency = prompt("Payments per Year ")
 var numberOfPayments = numberOfYears * repayFrequency
 
 var error = (10 ** -5)
