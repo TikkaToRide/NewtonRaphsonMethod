@@ -1,3 +1,4 @@
+
 loan_amount = float(input("Loan Amount: $"))
 payment_amount = float(input("Payment Amount: $"))  # this is the repayment amount
 term_of_loan = int(input("Term of Loan: "))  # how many years is the loan for
