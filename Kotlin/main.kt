@@ -40,6 +40,6 @@ fun main() {
 
     val interestRate = (approx * repayFreq * 10000)/100  //this way we get APRs like 7.5% or 6.55%
     println("Interest Rate is ${"%.2f".format(interestRate)}%")
-	print(approx)  //used (approx) for the interest rate for the amortisaiton schedule
+    print(approx)  //used (approx) for the interest rate for the amortisaiton schedule
 
 }
