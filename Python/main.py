@@ -1,7 +1,7 @@
 loan_amount = float(input("Loan Amount: $"))
 payment_amount = float(input("Payment Amount: $"))  # this is the repayment amount
-term_of_loan = int(input("Term of Loan: "))  # this is the repayment amount
-payment_frequency = int(input("Payment Frequency: "))  # put how many payments in the year eg. 1 = yearly, 12 = monthly
+term_of_loan = int(input("Term of Loan: "))  # how many years is the loan for
+payment_frequency = int(input("Payment Frequency: "))  # how many payments in the year eg. 1 = yearly, 12 = monthly
 
 number_of_payments = term_of_loan * payment_frequency
 previous_approx = float(0)
@@ -32,4 +32,4 @@ while k < 20:
 
 interest_rate = ((approx * payment_frequency * 10000) / 100)
 print(f"Interest Rate is {interest_rate:.2f}%")
-print(approx)  # this figure is what is used for the amortisation schedule
+print(approx)  # this figure is what is used for the interest rate on the amortisation schedule
