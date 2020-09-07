@@ -1,12 +1,12 @@
 
 var principal = prompt("Principal Amount ")
-var payment = prompt("Payment Amount ") //this is the repayment amount
-var numberOfYears = prompt("How Many Years is Loan ") //how many years is the loan for?
+var payment = prompt("Payment Amount ")
+var numberOfYears = prompt("How Many Years is Loan ")
 var repayFrequency = prompt("Payments per Year ") //how many payments in the year eg. 1 = yearly, 12 = monthly
 var numberOfPayments = numberOfYears * repayFrequency
 
 var error = (10 ** -5)
-var approx = (0.05 / 12)
+var approx = (0.05 / 12) //start with a gusess that the APR is 5%
 var previousApprox = 0
 
 function f(x) {
