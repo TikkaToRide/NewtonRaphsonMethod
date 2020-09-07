@@ -16,7 +16,7 @@ function f(x) {
 function fPrime(x) {
     return principal * (((1 + x) ** numberOfPayments) / (-1 + ((1 + x) ** numberOfPayments)) -
                         numberOfPayments * x * ((1 + x) ** (-1 + 2 * numberOfPayments)) /
-                        ((-1 + ((1 + x) ** numberOfPayments)) ** 2.00) +
+                        ((-1 + ((1 + x) ** numberOfPayments)) ** 2) +
                         numberOfPayments * x * ((1 + x) ** (-1 + numberOfPayments)) /
                         (-1 + ((1 + x) ** numberOfPayments)))
 }
