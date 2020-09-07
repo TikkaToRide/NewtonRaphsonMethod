@@ -17,7 +17,7 @@ def f(x):
 def f_prime(x):
     return loan_amount * (((1 + x) ** number_of_payments) / (-1 + ((1 + x) ** number_of_payments)) -
                           number_of_payments * x * ((1 + x) ** (-1 + 2 * number_of_payments)) /
-                          ((-1 + ((1 + x) ** number_of_payments)) ** 2.00) +
+                          ((-1 + ((1 + x) ** number_of_payments)) ** 2) +
                           number_of_payments * x * ((1 + x) ** (-1 + number_of_payments)) /
                           (-1 + ((1 + x) ** number_of_payments)))
 
