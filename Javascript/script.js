@@ -5,9 +5,11 @@ var numberOfYears = prompt("How Many Years is Loan ")
 var repayFrequency = prompt("Payments per Year ") //how many payments in the year eg. 1 = yearly, 12 = monthly
 var numberOfPayments = numberOfYears * repayFrequency
 
+function newtonRaphsonMethod(){
 var error = (10 ** -5)
 var approx = (0.05 / 12) //start with a gusess that the APR is 5%
 var previousApprox = 0
+
 
 function f(x) {
     return principal * x * ((1 + x) ** numberOfPayments) / (((1 + x) ** numberOfPayments) - 1) - payment
@@ -31,6 +33,12 @@ while (k < 20) {
         }
     k += 1
 }
-interestRate = ((approx * repayFrequency * 10000) / 100)
+
+return approx
+
+}
+
+var interestPerPayment = newtonRaphsonMethod()
+var interestRate = ((interestPerPayment * repayFrequency * 10000) / 100)
 console.log("Interest Rate is " + (interestRate.toFixed(2)) + "%")
-console.log(approx) //this figure is what is used for the interest rate for the amortisation schedule
+console.log(interestPerPayment) //this figure is what is used for the interest rate for the amortisation schedule
