@@ -14,9 +14,10 @@ fun main() {
     val repayFreq = readLine()!!.toDouble()
     val numPay = numberOfYears * repayFreq
 
-    val error = 10.0.pow(-5.0)
-    var approx = 0.05/12 //let's start with a guess that the APR is 5%
-    var prevApprox: Double
+fun calculateInterest(): Double{
+    val tolerableError = 10.0.pow(-5.0)
+    var guess = 0.05/12 //let's start with a guess that the APR is 5%
+    var updateGuess: Double
 
     fun f(x: Double): Double {
         return principal * x * (1 + x).pow(numPay) / ((1 + x).pow(numPay) - 1 ) - payment
@@ -32,16 +33,18 @@ fun main() {
 
     var k = 0
     while (k < 20){
-        prevApprox = approx
-        approx = prevApprox - f(prevApprox) / fPrime(prevApprox)
-        val diff = abs(approx - prevApprox)
-        if (diff < error)
+        updateGuess = guess
+        guess = updateGuess - f(updateGuess) / fPrime(updateGuess)
+        val diff = abs(guess - updateGuess)
+        if (diff < tolerableError)
             break
         k += 1
     }
-
-    val interestRate = (approx * repayFreq * 10000)/100 // this way we get APRs like 7.5% or 6.55%
+return guess
+}
+    val interestPerPayment = calculateInterest()
+    val interestRate = (interestPerPayment * repayFreq * 10000)/100 // this way we get APRs like 7.5% or 6.55%
     println("Interest Rate is ${"%.2f".format(interestRate)}%")
-    println(approx) // this figure is what is used for the iterest rate for the amortisation schedue
+    println(interestPerPayment) // this figure is what is used for the iterest rate for the amortisation schedue
 
 }
