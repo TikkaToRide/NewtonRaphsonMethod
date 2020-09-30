@@ -6,9 +6,11 @@ $numberOfYears = 5;
 $paymentsPerYear = 1;
 $numberOfPayments = $numberOfYears * $paymentsPerYear;
 
-$error = 10 ** -5;
-$startGuess = 0.05/12;
-$previousStartGuess = 0;
+function calculateInterest(){
+
+$tolerableError  = 10 ** -5;
+$guess = 0.05/12; //Initial interest rate guess of 5%
+$updateGuess = 0;
 
 function f($x) {
     global $principal;
@@ -31,17 +33,21 @@ function fPrime($x) {
 
 $k = 0;
 while($k < 20) {
-    $previousStartGuess = $startGuess;
-    $startGuess = $previousStartGuess - f($previousStartGuess) / fPrime($previousStartGuess);
-    $diff = abs($startGuess - $previousStartGuess);
-    if ($diff < $error) {
+    $updateGuess = $guess;
+    $guess = $updateGuess - f($updateGuess) / fPrime($updateGuess);
+    $diff = abs($guess - $updateGuess);
+    if ($diff < $tolerableError) {
         break;
         }
     $k += 1;
-}		
+}
 
-$interestRate = (($startGuess * $paymentsPerYear * 10000) / 100);
+return $guess;
+}
+
+$interestPerPayment = calculateInterest();
+$interestRate = (($interestPerPayment * $paymentsPerYear * 10000) / 100);
 
 print "Interest Rate is " .round($interestRate, 2). "%\n";
-print $startGuess; //this figure is what is used for the interest rate for the amortisation schedule	
+print $interestPerPayment; //this figure is what is used for the interest rate for the amortisation schedule	
 ?>
