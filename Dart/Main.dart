@@ -13,25 +13,10 @@ void main() {
     var guess = 0.05 / 12;
     var updateGuess;
 
-    double f(x) =>
-        principal *
-            x *
-            pow((1 + x), numberOfPayments) /
-            (pow((1 + x), numberOfPayments) - 1) -
-        payment;
+    double f(x) => principal * x * pow((1 + x), numberOfPayments) / (pow((1 + x), numberOfPayments) - 1) - payment;
 
-    double fPrime(x) =>
-        principal *
-        (pow((1 + x), numberOfPayments) /
-                (-1 + pow((1 + x), numberOfPayments)) -
-            numberOfPayments *
-                x *
-                pow((1 + x), (-1 + 2 * numberOfPayments)) /
-                pow(-1 + pow((1 + x), numberOfPayments), 2) +
-            numberOfPayments *
-                x *
-                pow((1 + x), (-1 + numberOfPayments)) /
-                (-1 + pow((1 + x), numberOfPayments)));
+    double fPrime(x) => principal * (pow((1 + x), numberOfPayments) / (-1 + pow((1 + x), numberOfPayments)) - numberOfPayments * x * pow((1 + x), (-1 + 2 * numberOfPayments)) /
+                pow(-1 + pow((1 + x), numberOfPayments), 2) + numberOfPayments * x * pow((1 + x), (-1 + numberOfPayments)) / (-1 + pow((1 + x), numberOfPayments)));
 
     var k = 0;
 
@@ -45,7 +30,7 @@ void main() {
       k += 1;
     }
 
-    return guess;
+  return guess;
   }
 
   var interestPerPayment = calculateInterest();
